@@ -7,13 +7,13 @@ with open('file1.txt', 'r') as file1:
   a_iplist = []
   iplist = file1.readlines()
   for line in iplist:
-    a_iplist.append(rem_ip)
+    a_iplist.append(line)
   
   print(a_iplist)
   
  
-with open('file1.txt', 'w') as file1:
-    file1.write(rem_dob)
+# with open('file1.txt', 'w') as file1:
+#     file1.write(rem_dob)
 
 file1.close()
 

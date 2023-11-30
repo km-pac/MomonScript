@@ -1,11 +1,16 @@
 # CLEANING THE FIRST FILE FROM TWMON
 with open('file1.txt', 'r') as file1:
-  filedata = file1.read()
-  rem_ip = filedata.replace('No new IP', '')
-  rem_space = rem_ip.strip()
+  # filedata = file1.read()
+
+  lines = file1.realines()
+
+  for line in lines:
+    print(line)
+  # rem_ip = filedata.replace('No new IP', '')
+  # rem_space = rem_ip.strip()
  
-with open('file1.txt', 'w') as file1:
-  file1.write(rem_space)
+# with open('file1.txt', 'w') as file1:
+#   file1.write(rem_space)
 
 file1.close()
 

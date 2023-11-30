@@ -5,9 +5,9 @@ with open('file1.txt', 'r') as file1:
   # rem_space = rem_ip.replace('\n', ' ')
   # rem
 
-  a_ipadd = []
-  a_ipaad.append(rem_ip)
-  print(a_ipadd)
+  a_iplist = []
+  a_iplist.append(rem_ip)
+  print(a_iplist)
   
  
 with open('file1.txt', 'w') as file1:

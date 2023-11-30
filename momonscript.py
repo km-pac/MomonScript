@@ -14,9 +14,8 @@ with open('file2.txt', 'r') as file2:
     iplist = dataline.replace('[','').replace(']','').replace('"','').replace('\\','').split(",")
    
     for line in iplist:  
-      print(line)
-      # if line.isdigit() || line:
-      #   cleaned_iplist_momon.append(line)
+      if not line.isaplha():
+        cleaned_iplist_momon.append(line)
 
     
         

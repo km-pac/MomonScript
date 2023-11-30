@@ -12,7 +12,7 @@ with open('file2.txt', 'r') as file2:
     cleaned_iplist_momon = []
     dataline = file2.read()
     iplist = dataline.replace('[','').replace(']','').replace('"','').replace('\\','').split(",")
-    cleaned_iplist_momon = [ip for ip in iplist if ip.digit() && if "\\" in ip]
+    cleaned_iplist_momon = [ip for ip in iplist if ip.isdigit() and "\\" in ip]
 
     # for line in iplist:  
     #   if not line.isaplha():

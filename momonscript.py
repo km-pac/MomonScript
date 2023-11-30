@@ -9,7 +9,7 @@ with open('file1.txt', 'r') as file1:
           cleaned_iplist.append(rem_ip)
 
   
-with open('file2.txt', 'w') as file2:
+with open('file2.txt', 'r') as file2:
     dataline = file2.read()
     cleaned_iplist_2 = dataline.split(",")
 
@@ -17,4 +17,5 @@ with open('file2.txt', 'w') as file2:
       print(line)
 
 file1.close()
+file2.close()
 

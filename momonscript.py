@@ -20,7 +20,7 @@ file2.close()
 #print(cleaned_iplist_twmon)
 #print(cleaned_iplist_momon)
 
-new_ip = list(set(cleaned_iplist_twmon) - set(cleaned_iplist_momon))
+new_ip = list(set(cleaned_iplist_momon) - set(cleaned_iplist_twmon))
 
 print("New IP Addresses:", new_ip)
 

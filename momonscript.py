@@ -14,12 +14,8 @@ with open('file2.txt', 'r') as file2:
     iplist = dataline.replace('[','').replace(']','').replace('"','').replace('\\','').split(",")
     cleaned_iplist_momon = [ip for ip in iplist if "/" in ip]
 
-    # for line in iplist:  
-    #   if not line.isaplha():
-    #     cleaned_iplist_momon.append(line)
-
-  
-    print(cleaned_iplist_momon)
+print(cleaned_iplist_twmon)
+print(cleaned_iplist_momon)
 
     
         

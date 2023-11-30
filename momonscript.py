@@ -3,33 +3,18 @@ with open('file1.txt', 'r') as file1:
   iplist = file1.readlines()
 
   cleaned_iplist = []
-
   for line in iplist:
       rem_ip = line.replace('No new IP', '').replace('\n', '')
       if rem_ip != '':
           cleaned_iplist.append(rem_ip)
-        
-  # for line in iplist:
-  #   rem_ip = line.replace('No new IP', '')
-  #   rem_space = rem_ip.replace('\n', '')
-  #   a_iplist.append(rem_space)
-  #   if rem_space != '':
-  #       cleaned_iplist.append(rem_space)
-
-  # for ip in a_iplist:
-  #   if ip != '':
-  #     cleaned_iplist.append(ip)
-
-  for ip in cleaned_iplist:
-    print(ip + "\n")
-
-
-
 
   
- 
-# with open('file1.txt', 'w') as file1:
-#     file1.write(rem_dob)
+with open('file2.txt', 'w') as file2:
+    dataline = file2.read()
+    cleaned_iplist_2 = dataline.split(",")
+
+    for line in cleaned_iplist_2:
+      print(line)
 
 file1.close()
 

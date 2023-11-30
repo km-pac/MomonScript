@@ -12,7 +12,7 @@ with open('file2.txt', 'r') as file2:
     cleaned_iplist_momon = []
     dataline = file2.read()
     iplist = dataline.replace('[','').replace(']','').replace('"','').replace('\\','').split(",")
-    cleaned_iplist_momon = [ip for ip in iplist if not ip.isalnum()]
+    cleaned_iplist_momon = [ip for ip in iplist if ip.isalnum()]
 
     # for line in iplist:  
     #   if not line.isaplha():

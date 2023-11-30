@@ -5,7 +5,7 @@ with open('file1.txt', 'r') as file1:
 
   lines = file1.readlines()
   for line in lines:
-    rem_space = rem_ip.replace(' ','')
+    rem_space = line.replace(' ','')
 
 with open('file1.txt', 'w') as file1:
   file1.write(rem_space)

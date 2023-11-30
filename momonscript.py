@@ -9,7 +9,7 @@ with open('file1.txt', 'r') as file1:
   for line in iplist:
     rem_ip = line.replace('No new IP', '')
     rem_space = rem_ip.replace('\n', ' ')
-    a_iplist = [item for item in rem_space if item != " "]
+    a_iplist = [item for item in rem_space]
   print(a_iplist)
   
  

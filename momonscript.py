@@ -7,11 +7,8 @@ with open('file1.txt', 'r') as file1:
   cleaned_text = []
   
   for line in lines:
-    # print(line)
     rem_ip = line.replace('No new IP', '')
 
 with open('file1.txt', 'w') as file1:
-  lines = file1.readlines()
+  file1.write(rem_ip)
 
-  for line in cleaned_text:
-    file1.write(lines)

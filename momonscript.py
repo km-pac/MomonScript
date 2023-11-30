@@ -1,5 +1,5 @@
 text1 = open("file1.txt","w")
-LinesText1 = text.readlines()
+linesText1 = text.readlines()
 
 for line in Lines:
   print(line)

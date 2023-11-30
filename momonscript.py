@@ -29,7 +29,7 @@ file2.close()
 
 new_ips = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
 
-print("NEW IP ADDRESSES")'
+print("NEW IP ADDRESSES")
 count = 1
 for line in new_ips:
   print(count + " " + line)

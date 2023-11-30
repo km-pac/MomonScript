@@ -17,15 +17,15 @@ with open('momon.txt', 'r') as file2:
 file1.close()
 file2.close()
 
-print(cleaned_iplist_twmon)
-print(cleaned_iplist_momon)
+# print(cleaned_iplist_twmon)
+# print(cleaned_iplist_momon)
 
-# print("TWMON")
-# for line in cleaned_iplist_twmon:
-#   print(line)
-# print("\n\n\nMOMON")
-# for line in cleaned_iplist_momon:
-#   print(line)
+print("TWMON")
+for line in cleaned_iplist_twmon:
+  print(line)
+print("\n\n\nMOMON")
+for line in cleaned_iplist_momon:
+  print(line)
 
 # new_ip = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
 # print("New IP Addresses:", new_ip)

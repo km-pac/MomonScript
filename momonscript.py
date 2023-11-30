@@ -17,7 +17,7 @@ with open('file2.txt', 'r') as file2:
     # for line in iplist:  
     #   if not line.isaplha():
     #     cleaned_iplist_momon.append(line)
-    # print(cleaned_iplist_momon)
+    print(cleaned_iplist_momon)
 
     
         

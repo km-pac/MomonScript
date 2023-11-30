@@ -5,7 +5,7 @@ with open('file1.txt', 'r') as file1:
 
 # Replace the target string
 filedata1 = filedata.replace('No new IP', '')
-filedata2 = filedata.replace(' ', '')
+filedata2 = filedata.replace('.', '|')
 
 # Write the file out again
 with open('file1.txt', 'w') as file1:

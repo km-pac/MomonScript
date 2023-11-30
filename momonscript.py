@@ -28,6 +28,6 @@ for line in cleaned_iplist_momon:
   print(line)
 
 new_ip = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
-# print("New IP Addresses:", new_ip)
+print("New IP Addresses:", new_ip)
 
 

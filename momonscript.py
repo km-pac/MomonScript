@@ -5,12 +5,18 @@ with open('file1.txt', 'r') as file1:
   # # rem_space = rem_ip.replace('\n', ' ')
   # # rem
   a_iplist = []
+  cleaned_iplist = []
   iplist = file1.readlines()
   for line in iplist:
     rem_ip = line.replace('No new IP', '')
     rem_space = rem_ip.replace('\n', ' ')
-    a_iplist = [item for item in rem_space]
-  print(a_iplist)
+    a_iplist.append(rem_space)
+
+  for ip in a_iplist:
+    if ip != " ":
+      cleaned_iplist.append(ip)
+      
+  print(cleaned_iplist)
   
  
 # with open('file1.txt', 'w') as file1:

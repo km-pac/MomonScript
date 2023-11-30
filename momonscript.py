@@ -3,7 +3,7 @@ with open('twmon.txt', 'r') as file1:
   cleaned_iplist_twmon = []
   iplist = file1.readlines()  
   for line in iplist:
-      rem_ip = line.replace('No new IP', '').replace('\n', '')
+      rem_ip = line.upper().replace('NO NEW IP', '').replace('\n', '')
       if rem_ip != '':
           cleaned_iplist_twmon.append(rem_ip)
 

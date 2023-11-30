@@ -15,8 +15,9 @@ with open('file1.txt', 'r') as file1:
   for ip in a_iplist:
     if ip != '':
       cleaned_iplist.append(ip)
-      
-  print(cleaned_iplist)
+
+  for ip in cleaned_iplist:
+    print(ip + "\n")
   
  
 # with open('file1.txt', 'w') as file1:

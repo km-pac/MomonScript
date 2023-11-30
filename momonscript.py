@@ -10,10 +10,11 @@ with open('file1.txt', 'r') as file1:
     # print(line)
     rem_ip = line.replace('No new IP', '')
     if line != " ":
+      print(line)
       cleaned_text.append(rem_ip)
 
-  for line in cleaned_text:
-    print(line)
+  # for line in cleaned_text:
+  #   print(line)
 
   # file1.close()
 # with open('file1.txt', 'w') as file1:

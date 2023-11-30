@@ -7,7 +7,9 @@ with open('file1.txt', 'r') as file1:
   a_iplist = []
   iplist = file1.readlines()
   for line in iplist:
-    a_iplist.append(line)
+    rem_ip = filedata.replace('No new IP', '')
+    rem_space = rem_ip.replace('\n', ' ')
+    a_iplist.append(rem_space)
   
   print(a_iplist)
   

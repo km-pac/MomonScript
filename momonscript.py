@@ -33,6 +33,6 @@ print("NEW IP ADDRESSES")
 count = 1
 for line in new_ips:
   print(count + " " + line)
-  count++
+  count = count + 1
 
 

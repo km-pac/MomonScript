@@ -1,11 +1,14 @@
 # CLEANING THE FIRST FILE FROM TWMON SHEET
 with open('file1.txt', 'r') as file1:
   cleaned_iplist_twmon = []
-  iplist = file1.readlines()
-  for line in iplist:
-      rem_ip = line.replace('No new IP', '').replace('\n', '')
-      if rem_ip != '':
-          cleaned_iplist_twmon.append(rem_ip)
+  datalines = file1.readlines()
+  iplist = dataline.replace('No new IP', '').replace('\n', '')
+  cleaned_iplist_twmon = [ip for ip in iplist if not '' in ip]
+  print(cleaned_iplist_twmon)
+  # for line in iplist:
+  #     rem_ip = line.replace('No new IP', '').replace('\n', '')
+  #     if rem_ip != '':
+  #         cleaned_iplist_twmon.append(rem_ip)
 
   
 with open('file2.txt', 'r') as file2:

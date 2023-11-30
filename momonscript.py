@@ -2,7 +2,7 @@
 with open('file1.txt', 'r') as file1:
   # filedata = file1.read()
 
-  lines = file1.realines()
+  lines = file1.readlines()
 
   for line in lines:
     print(line)

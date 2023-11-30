@@ -9,11 +9,11 @@ with open('file1.txt', 'r') as file1:
   iplist = file1.readlines()
   for line in iplist:
     rem_ip = line.replace('No new IP', '')
-    rem_space = rem_ip.replace('\n', ' ')
+    rem_space = rem_ip.replace('\n', '')
     a_iplist.append(rem_space)
 
   for ip in a_iplist:
-    if ip != " ":
+    if ip != '':
       cleaned_iplist.append(ip)
       
   print(cleaned_iplist)

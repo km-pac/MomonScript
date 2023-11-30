@@ -8,6 +8,6 @@ filedata1 = filedata.replace('No new IP', '')
 filedata2 = filedata.replace('\n', '\r')
 
 # Write the file out again
-with open('file.txt', 'w') as file1:
+with open('file1.txt', 'w') as file1:
   file1.write(filedata1)
   file1.write(filedata2)

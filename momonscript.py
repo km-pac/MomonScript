@@ -23,7 +23,7 @@ file2.close()
 print("TWMON")
 for line in cleaned_iplist_twmon:
   print(line)
-print("MOMON")
+print("\n\n\nMOMON")
 for line in cleaned_iplist_momon:
   print(line)
 

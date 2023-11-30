@@ -14,7 +14,7 @@ with open('file2.txt', 'r') as file2:
     iplist = dataline.replace('[','').replace('"','').replace('\\','').split(",")
   
 
-    for line in cleaned_iplist_2:
+    for line in cleaned_iplist_momon:
       print(line)
 
 file1.close()

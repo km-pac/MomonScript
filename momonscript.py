@@ -9,8 +9,8 @@ with open('file1.txt', 'r') as file1:
   for line in lines:
     # print(line)
     rem_ip = line.replace('No new IP', '')
-    rem_space = rem_ip.strip()
-    cleaned_text.append(rem_space)
+    if line != " ":
+      cleaned_text.append(rem_ip)
 
   for line in cleaned_text:
     print(line)

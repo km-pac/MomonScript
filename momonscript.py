@@ -2,7 +2,7 @@
 with open('file1.txt', 'r') as file1:
   cleaned_iplist_twmon = []
   datalines = file1.readlines()
-  iplist = dataline.replace('No new IP', '').replace('\n', '')
+  iplist = datalines.replace('No new IP', '').replace('\n', '')
   cleaned_iplist_twmon = [ip for ip in iplist if not '' in ip]
   print(cleaned_iplist_twmon)
   # for line in iplist:

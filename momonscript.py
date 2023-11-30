@@ -1,7 +1,7 @@
 text1 = open("file1.txt","w")
 linesText1 = text.readlines()
 
-for line in Lines:
+for line in linesText1:
   print(line)
 text1.close()
 

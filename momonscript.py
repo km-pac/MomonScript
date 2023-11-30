@@ -9,9 +9,7 @@ with open('file1.txt', 'r') as file1:
   for line in iplist:
     rem_ip = line.replace('No new IP', '')
     rem_space = rem_ip.replace('\n', ' ')
-    a_iplist.append(rem_space)
-    
-  a_iplist = a_iplist.filter(item => item !== " ");
+    a_iplist = [item for item in rem_space if item != " "]
   print(a_iplist)
   
  

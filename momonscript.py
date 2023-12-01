@@ -1,4 +1,6 @@
-import pexpect
+# import pexpect
+import os
+
 
 # # CLEANING THE FIRST FILE FROM TWMON SHEET
 with open('twmon.txt', 'r') as file1:
@@ -36,17 +38,23 @@ new_ips = [element for element in cleaned_iplist_momon if element not in cleaned
 print("NEW IP ADDRESSES")
 ping_count = 1
 for line in new_ips:
-    print(line)
-    modified_ip = line.split('.0/')[0] + '.2'
-    ping_command = "ping -c {} {}".format(ping_count, modified_ip)
-    ping_result = pexpect.spawn(ping_command)
-    ping_result.expect(pexpect.EOF)
+    # print(line)
+    # modified_ip = line.split('.0/')[0] + '.2'
+    # ping_command = "ping -c {} {}".format(ping_count, modified_ip)
+    # ping_result = pexpect.spawn(ping_command)
+    # ping_result.expect(pexpect.EOF)
 
-    # Check if the ping result contains the expected response
-    if "{} packets transmitted, {} received".format(ping_count, ping_count) in ping_result.before.decode("utf-8"):
-        print("{} is pingable".format(modified_ip))
+    # # Check if the ping result contains the expected response
+    # if "{} packets transmitted, {} received".format(ping_count, ping_count) in ping_result.before.decode("utf-8"):
+    #     print("{} is pingable".format(modified_ip))
+    # else:
+    #     print("{} is not pingable".format(modified_ip))
+    
+    response = os.system("ping -c 1 " + line)
+    if response == 0:
+      print(f"{hostname} is up!")
     else:
-        print("{} is not pingable".format(modified_ip))
+      print(f"{hostname} is down!")
 
  
 

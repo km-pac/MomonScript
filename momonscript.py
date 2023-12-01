@@ -52,9 +52,9 @@ for line in new_ips:
     
     response = os.system("ping -c 1 " + line)
     if response == 0:
-      print(f"{hostname} is up!")
+      print("{} is up!".format(line))
     else:
-      print(f"{hostname} is down!")
+      print("{} is down!".format(line))
 
  
 

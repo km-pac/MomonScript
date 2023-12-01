@@ -55,9 +55,9 @@ for line in new_ips:
 
     # Check if the ping result contains the expected response
     if "{} packets transmitted, {} received".format(ping_count, ping_count) in ping_result.before.decode("utf-8"):
-        print(f"{modified_ip} is pingable")
+        print("{} is pingable".format(modified_ip))
     else:
-        print(f"{modified_ip} is not pingable")
+        print("{} is not pingable".format(modified_ip))
 
  
 

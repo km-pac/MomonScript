@@ -43,15 +43,7 @@ for line in new_ips:
 
     if response == 0:
         print("{} is up!".format(modified_ip))
-        os.system("traceroute " + modified_ip)
     else:
         print("{} is down!".format(modified_ip))
-# for line in new_ips:
-#     modified_ip = line.split('.0/')[0] + '.2'
-#     response = os.system("fping -r0" + modified_ip)
-#     if response == 0:
-#       print("{} is up!".format(modified_ip))
-#     else:
-#       print("{} is down!".format(modified_ip))
 
  

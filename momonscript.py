@@ -36,13 +36,21 @@ new_ips = [element for element in cleaned_iplist_momon if element not in cleaned
 
 
 print("NEW IP ADDRESSES")
-ping_count = 1
+
 for line in new_ips:
     modified_ip = line.split('.0/')[0] + '.2'
-    response = os.system("fping -r0" + modified_ip)
+    response = os.system("fping -c 1 -r 0 " + modified_ip)
+
     if response == 0:
-      print("{} is up!".format(modified_ip))
+        print("{} is up!".format(modified_ip))
     else:
-      print("{} is down!".format(modified_ip))
+        print("{} is down!".format(modified_ip))
+# for line in new_ips:
+#     modified_ip = line.split('.0/')[0] + '.2'
+#     response = os.system("fping -r0" + modified_ip)
+#     if response == 0:
+#       print("{} is up!".format(modified_ip))
+#     else:
+#       print("{} is down!".format(modified_ip))
 
  

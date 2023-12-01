@@ -35,18 +35,29 @@ new_ips = [element for element in cleaned_iplist_momon if element not in cleaned
 
 print("NEW IP ADDRESSES")
 ping_count = 2
-for line in new_ips:
-  print(line)
+# for line in new_ips:
+#   print(line)
   
-  # modified_ip = line.split('.0/')[0] + '.2'
-  modified_ip = "google.com"
-  ping_result = pexpect.spawn("ping -c {} {}".format(ping_count, modified_ip))
+#   modified_ip = line.split('.0/')[0] + '.2'
+#   ping_result = pexpect.spawn("ping -c {} {}".format(ping_count, modified_ip))
 
-  ping = ping_result.readline()
-  print(ping)
-    # if "{} packets transmitted, {} received".format(ping_count, ping_count) in pingtest:
-    #   print("Public IP is in use")
-    # else: print("Public IP not in use")
+#   ping = ping_result.readline()
+#   print(ping)
+
+for line in new_ips:
+    print(line)
+
+    modified_ip = line.split('.0/')[0] + '.2'
+    ping_command = "ping -c {} {}".format(ping_count, modified_ip)
+
+    ping_result = pexpect.spawn(ping_command)
+    ping_result.expect(pexpect.EOF)
+
+    # Check if the ping result contains the expected response
+    if f"{ping_count} packets transmitted, {ping_count} received" in ping_result.before.decode("utf-8"):
+        print(f"{modified_ip} is pingable")
+    else:
+        print(f"{modified_ip} is not pingable")
 
  
 

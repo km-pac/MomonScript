@@ -38,7 +38,7 @@ print("NEW IP ADDRESSES")
 #   test = pexpect.spawn('ping -c 5 ' + line)
 #   print(test)
 test = pexpect.spawn('ping -c 2 192.168.10.2')
-  print(test)
+print(test)
 
 
 

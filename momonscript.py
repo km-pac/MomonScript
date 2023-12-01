@@ -34,16 +34,17 @@ new_ips = [element for element in cleaned_iplist_momon if element not in cleaned
 
 
 print("NEW IP ADDRESSES")
+ping_count == 2
 for line in new_ips:
   print(line)
   
   # modified_ip = line.split('.0/')[0] + '.2'
   modified_ip = "google.com"
-  ping_result = pexpect.spawn("ping -c 5 {}".format(modified_ip))
+  ping_result = pexpect.spawn("ping -c {} {}".format(ping_count, modified_ip))
   while 1:
     pingtest = ping_result.readline()
-    if not pingtest: break
-    print(pingtest)
+    if "{} packets transmitted, {} received".format(ping_count, ping_count) in pingtest:
+      print(pingtest)
 
  
 

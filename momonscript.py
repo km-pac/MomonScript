@@ -43,7 +43,7 @@ for line in new_ips:
 
     if ping_response == 0:
         print(Fore.GREEN + "{} is up!".format(modified_ip) + Fore.WHITE)
-        traceroute_response = os.system("traceroute -I {}".format(modified_ip)).readlines()[-2]
+        traceroute_response = os.system("traceroute -I {}".format(modified_ip)).strip().splitlines()[-2]
         print(traceroute_response)
     else:
         print("{} is down!".format(modified_ip))

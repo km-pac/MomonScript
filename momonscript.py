@@ -39,7 +39,7 @@ print("NEW IP ADDRESSES")
 
 for line in new_ips:
     modified_ip = line.split('.0/')[0] + '.2'
-    response = os.system("fping -c 1 -r 0 " + modified_ip)
+    response = os.system("fping -c 1 -r 0 " + modified_ip + " > /dev/null 2>&1")
 
     if response == 0:
         print("{} is up!".format(modified_ip))

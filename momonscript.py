@@ -39,10 +39,11 @@ print("NEW IP ADDRESSES")
 
 for line in new_ips:
     modified_ip = line.split('.0/')[0] + '.2'
-    response = os.system("fping -c 1 -r 0 " + modified_ip + " > /dev/null 2>&1")
+    response = os.system("fping -c 1 -r 0 {}".format(modified_ip) + " > /dev/null 2>&1")
 
     if response == 0:
         print(Fore.GREEN + "{} is up!".format(modified_ip) + Fore.WHITE)
+        os.system("traceroute -I {}".format(modified_ip)
     else:
         print("{} is down!".format(modified_ip))
 

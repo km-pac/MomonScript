@@ -50,7 +50,7 @@ for line in new_ips:
     # else:
     #     print("{} is not pingable".format(modified_ip))
     
-    response = os.system("ping -c 1 " + modified_ip)
+    response = os.system("ping -W 0.1 -c 1 " + modified_ip)
     if response == 0:
       print("{} is up!".format(modified_ip))
     else:

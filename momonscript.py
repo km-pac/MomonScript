@@ -44,7 +44,8 @@ for line in new_ips:
   while 1:
     pingtest = ping_result.readline()
     if "{} packets transmitted, {} received".format(ping_count, ping_count) in pingtest:
-      print(pingtest)
+      print("Public IP is in use)
+    else: print("Public IP not in use)
 
  
 

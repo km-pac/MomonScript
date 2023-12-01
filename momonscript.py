@@ -34,11 +34,16 @@ file2.close()
 new_ips = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
 
 print("NEW IP ADDRESSES")
-# for line in new_ips:
-#   test = pexpect.spawn('ping -c 5 ' + line)
-#   print(test)
-test = pexpect.spawn('ping -c 2 192.168.10.2')
-print(test)
+for line in new_ips:
+  ping_result = pexpect.spawn('ping -c 5 ' + line)
+  pingtest = ping_result.readline()
+  if not pingtest: break
+  print(pingtest)
+
+
+
+# test = pexpect.spawn('ping -c 2 192.168.10.2')
+# print(test)
 
 
 

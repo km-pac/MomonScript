@@ -39,7 +39,7 @@ print("NEW IP ADDRESSES")
 ping_count = 1
 for line in new_ips:
     # print(line)
-    # modified_ip = line.split('.0/')[0] + '.2'
+    modified_ip = line.split('.0/')[0] + '.2'
     # ping_command = "ping -c {} {}".format(ping_count, modified_ip)
     # ping_result = pexpect.spawn(ping_command)
     # ping_result.expect(pexpect.EOF)
@@ -50,11 +50,11 @@ for line in new_ips:
     # else:
     #     print("{} is not pingable".format(modified_ip))
     
-    response = os.system("ping -c 1 " + line)
+    response = os.system("ping -c 1 " + modified_ip)
     if response == 0:
-      print("{} is up!".format(line))
+      print("{} is up!".format(modified_ip))
     else:
-      print("{} is down!".format(line))
+      print("{} is down!".format(modified_ip))
 
  
 

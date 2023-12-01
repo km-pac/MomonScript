@@ -33,6 +33,11 @@
 # for line in new_ips:
 #   print(line)
 
-from scapy.all import *
-target = ["192.168.1.254"]
-result, unans = traceroute(target,maxttl=32)
+import pexpect
+
+child = pexpect.spawn('ping -c 5 www.google.com')
+
+while 1:
+        line = child.readline()
+        if not line: break
+        print line,

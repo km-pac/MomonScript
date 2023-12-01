@@ -41,7 +41,7 @@ for line in new_ips:
   modified_ip = "google.com"
   ping_result = pexpect.spawn("ping -c 5 {}".format(modified_ip))
   while 1:
-     pingtest = ping_result.readline()
+    pingtest = ping_result.readline()
     if not pingtest: break
     print(pingtest)
 

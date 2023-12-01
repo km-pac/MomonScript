@@ -40,10 +40,12 @@ for line in new_ips:
   # modified_ip = line.split('.0/')[0] + '.2'
   modified_ip = "google.com"
   ping_result = pexpect.spawn("ping -c 5 {}".format(modified_ip))
-  pingtest = ping_result.readline()
-  if not pingtest: break
-  print(pingtest)
+  while 1:
+     pingtest = ping_result.readline()
+    if not pingtest: break
+    print(pingtest)
 
+ 
 
 
 # child = pexpect.spawn('ping -c 5 ', new_ips[0])

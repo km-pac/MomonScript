@@ -41,7 +41,7 @@ print("NEW IP ADDRESSES")
 
 
 
-child = pexpect.spawn('ping -c 5 www.google.com')
+child = pexpect.spawn('ping -c 5 ' + new_ips[0])
 
 while 1:
         line = child.readline()

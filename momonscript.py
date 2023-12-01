@@ -43,6 +43,7 @@ for line in new_ips:
 
     if response == 0:
         print("{} is up!".format(modified_ip))
+        os.system("traceroute " + modified_ip)
     else:
         print("{} is down!".format(modified_ip))
 # for line in new_ips:

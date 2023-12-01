@@ -43,7 +43,7 @@ for line in new_ips:
 
     if response == 0:
         print(Fore.GREEN + "{} is up!".format(modified_ip) + Fore.WHITE)
-        os.system("traceroute -I {}".format(modified_ip)
+        os.system("traceroute -I {}".format(modified_ip))
     else:
         print("{} is down!".format(modified_ip))
 

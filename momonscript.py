@@ -34,7 +34,7 @@ new_ips = [element for element in cleaned_iplist_momon if element not in cleaned
 
 
 print("NEW IP ADDRESSES")
-ping_count == 2
+ping_count = 2
 for line in new_ips:
   print(line)
   

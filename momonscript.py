@@ -42,7 +42,7 @@ for line in new_ips:
     response = os.system("fping -c 1 -r 0 " + modified_ip + " > /dev/null 2>&1")
 
     if response == 0:
-        print(Fore.GREEN + "{} is up!".format(modified_ip))
+        print(Fore.GREEN + "{} is up!".format(modified_ip) + Fore.WHITE)
     else:
         print("{} is down!".format(modified_ip))
 

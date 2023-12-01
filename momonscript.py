@@ -41,11 +41,12 @@ for line in new_ips:
   # modified_ip = line.split('.0/')[0] + '.2'
   modified_ip = "google.com"
   ping_result = pexpect.spawn("ping -c {} {}".format(ping_count, modified_ip))
-  while 1:
-    pingtest = ping_result.readline()
-    if "{} packets transmitted, {} received".format(ping_count, ping_count) in pingtest:
-      print("Public IP is in use")
-    else: print("Public IP not in use")
+
+  ping = ping_result.readline()
+  print(ping)
+    # if "{} packets transmitted, {} received".format(ping_count, ping_count) in pingtest:
+    #   print("Public IP is in use")
+    # else: print("Public IP not in use")
 
  
 

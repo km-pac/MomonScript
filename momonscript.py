@@ -56,8 +56,6 @@ for line in new_ips:
     else:
         print("{} is down!".format(modified_ip))
 
-print(verified_hop_list)
-
 isp_list = []
 # for hop in verified_hop_list:
 #   isp_trace_url = "https://ipapi.co/{}/json".format(hop)
@@ -77,4 +75,7 @@ for hop in verified_hop_list:
 print(verified_network)
 print(verified_hop_list)
 print(isp_list)
+
+for entry in verified_network:
+  print(Fore.GREEN + "SUBNET: " + verified_network[entry] + "\tLAST HOP :" +  verified_hop_list[entry] + "\tISP: " + isp_list + Fore.WHITE)
  

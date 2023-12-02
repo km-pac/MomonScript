@@ -23,18 +23,7 @@ with open('momon.txt', 'r') as file2:
 file1.close()
 file2.close()
 
-# # FOR DEBUGGING
-# # print(cleaned_iplist_twmon)
-# # print(cleaned_iplist_momon)
-# # print("TWMON")
-# # for line in cleaned_iplist_twmon:
-# #   print(line)
-# # print("\n\n\nMOMON")
-# # for line in cleaned_iplist_momon:
-# #   print(line)
-
 new_ips = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
-
 
 print("NEW IP ADDRESSES")
 
@@ -46,10 +35,12 @@ for line in new_ips:
         print(Fore.GREEN + "\n{} is up!".format(modified_ip) + Fore.WHITE)
     
         output = subprocess.check_output("traceroute -I {}".format(modified_ip), shell=True)
-        print(output.split("\n")
+        output_lines = output.splitlines()
+        for line in output_lines:
+            print(line)
         # traceroute_response = os.system("traceroute -I {}".format(modified_ip) + " > /dev/null 2>&1")
         # print(traceroute_response)
-
+              
     else:
         print("{} is down!".format(modified_ip))
 

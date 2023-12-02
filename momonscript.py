@@ -34,9 +34,6 @@ def extract_momon_ip(file):
 cleaned_iplist_twmon = extract_twmon_ip(twmon_file)
 cleaned_iplist_momon = extract_momon_ip(momon_file)
 
-print(cleaned_iplist_twmon)
-print(cleaned_iplist_momon)
-
 # COMPARING TWMON AND MOMON FILE
 new_ips = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
 

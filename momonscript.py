@@ -7,7 +7,7 @@ from colorama import Fore, Style, init
 
 os.system("clear")
 
-# # CLEANING THE FIRST FILE FROM TWMON SHEET
+# CLEANING THE FIRST FILE FROM TWMON SHEET
 with open('twmon.txt', 'r') as file1:
   cleaned_iplist_twmon = []
   iplist = file1.readlines()  
@@ -16,20 +16,20 @@ with open('twmon.txt', 'r') as file1:
       if rem_ip != '':
           cleaned_iplist_twmon.append(rem_ip)
 
-# # CLEANING THE FIRST FILE FROM MOMON SHEET
+# CLEANING THE FIRST FILE FROM MOMON SHEET
 with open('momon.txt', 'r') as file2:
     cleaned_iplist_momon = []
     dataline = file2.read()
     iplist = dataline.replace('[','').replace(']','').replace('"','').replace('\\','').split(",")
     cleaned_iplist_momon = [ip for ip in iplist if "/" in ip]
 
-# # CLOSE BOTH FILES
+# CLOSE BOTH FILES
 file1.close()
 file2.close()
 
 new_ips = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
 
-print("IP ADDRESSES FOUND ON MOMON THAT ARE NOT IN TWMON")
+print("IP ADDRESSES FOUND ON MOMON THAT ARE NOT IN TWMON\n")
 hop_list = []
 verified_hop_list = []
 verified_network_list = []

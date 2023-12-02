@@ -48,7 +48,7 @@ for line in new_ips:
 
         # Run the traceroute command and capture the output
         traceroute_output_bytes = subprocess.check_output(command, shell=True, stderr=subprocess.DEVNULL)
-        traceroute_output = traceroute_output_bytes.decode('utf-8'))
+        traceroute_output = traceroute_output_bytes.decode('utf-8')
         
         # Split the output into lines and extract the second-to-last line
         traceroute_lines = traceroute_output.split('\n')

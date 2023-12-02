@@ -69,7 +69,7 @@ for hop in verified_hop_list:
 # print(verified_network_list)
 # print(verified_hop_list)
 # print(isp_list)
-if verified_netwokr_list != []:
+if verified_network_list != []:
   print("\nNEW ENTRIES FOR TWMON\n")
   for index, entry in enumerate(verified_network_list):
     print(Fore.CYAN + verified_network_list[index])

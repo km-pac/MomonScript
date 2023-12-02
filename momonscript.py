@@ -40,7 +40,7 @@ print(cleaned_iplist_momon)
 # COMPARING TWMON AND MOMON FILE
 new_ips = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
 
-print("IP ADDRESSES FOUND ON MOMON THAT ARE NOT IN TWMON\n")
+print(Fore.CYAN + "IP ADDRESSES FOUND ON MOMON THAT ARE NOT IN TWMON\n" + Fore.WHITE)
 
 hop_list = []
 verified_hop_list = []

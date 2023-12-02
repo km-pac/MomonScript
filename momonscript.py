@@ -46,9 +46,10 @@ for line in new_ips:
             extracted_hop = line.split("(")[1].split(")")[0]
             hop_list.append(extracted_hop)
           except: continue
-          final_hop = hop_list[len(hop_list)-3]
-          print(Fore.GREEN + "LAST HOP: " + final_hop + Fore.WHITE + "\n")
-          verified_hop_list.append(final_hop)
+            
+        final_hop = hop_list[len(hop_list)-3]
+        print(Fore.GREEN + "LAST HOP: " + final_hop + Fore.WHITE + "\n")
+        verified_hop_list.append(final_hop)
     else:
         print("{} is down!".format(modified_ip))
 

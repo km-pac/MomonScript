@@ -10,7 +10,7 @@ twmon_file = "twmon.txt"
 momon_file = "momon.txt"
 
 # CLEANING THE FIRST FILE FROM TWMON SHEET
-def extract_twmon_ip(twmon_file):
+def extract_twmon_ip(file):
   with open('twmon.txt', 'r') as file1:
     cleaned_iplist_twmon = []
     iplist = file1.readlines()  
@@ -22,7 +22,7 @@ def extract_twmon_ip(twmon_file):
   return cleaned_iplist_twmon
 
 # CLEANING THE FIRST FILE FROM MOMON SHEET
-def extract_momon_ip(momon_file):
+def extract_momon_ip(file):
   with open('momon.txt', 'r') as file2:
       cleaned_iplist_momon = []
       dataline = file2.read()
@@ -31,7 +31,8 @@ def extract_momon_ip(momon_file):
   file2.close()
   return cleaned_iplist_momon
 
-
+extract_twmon_ip(twmon_file)
+extract_momon_ip(momon_file)
 
 new_ips = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
 

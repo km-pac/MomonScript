@@ -3,6 +3,8 @@ import os
 import subprocess
 from colorama import Fore, Style, init
 
+os.system("clear")
+
 # # CLEANING THE FIRST FILE FROM TWMON SHEET
 with open('twmon.txt', 'r') as file1:
   cleaned_iplist_twmon = []

@@ -36,12 +36,12 @@ for line in new_ips:
     
         output = subprocess.check_output("traceroute -I {}".format(modified_ip), shell=True).decode("utf-8").strip("\n ' '")
         output_lines = output.splitlines()
-        print(output_lines)
-        # for line in output_lines:
-        #     try: 
-        #       extracted_hop = line.split("(")[1].split(")")[0]
-        #       print("HOP: " + extracted_hop)
-        #     except: continue
+        
+        for line in output_lines:
+            try: 
+              extracted_hop = line.split("(")[1].split(")")[0]
+              print("HOP: " + extracted_hop)
+            except: continue
         
     else:
         print("{} is down!".format(modified_ip))

@@ -42,9 +42,10 @@ for line in new_ips:
     ping_response = os.system("fping -c 1 -r 0 {}".format(modified_ip) + " > /dev/null 2>&1")
 
     if ping_response == 0:
-        print(Fore.GREEN + "{} is up!".format(modified_ip) + Fore.WHITE)
-        traceroute_response = os.system("traceroute -I {}".format(modified_ip))
-        
+        print(Fore.GREEN + "\n{} is up!".format(modified_ip) + Fore.WHITE)
+        traceroute_response = os.system("traceroute -I {}".format(modified_ip) + " > /dev/null 2>&1")
+        test = traceroute_response.readlines()
+        print(test[-2])
     else:
         print("{} is down!".format(modified_ip))
 

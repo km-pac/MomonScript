@@ -80,5 +80,5 @@ print("\nNEW ENTRIES FOR TWMON")
 for index, entry in enumerate(verified_network_list):
   print(Fore.CYAN + verified_network_list[index])
   print(Fore.GREEN + "LAST HOP: " + verified_hop_list[index])
-  print(Fore.GREEN + "ISP: " + verified_hop_list[index] + "\n" + Fore.WHITE)
+  print(Fore.GREEN + "ISP: " + isp_list[index] + "\n" + Fore.WHITE)
  

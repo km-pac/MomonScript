@@ -29,7 +29,7 @@ file2.close()
 
 new_ips = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
 
-print("NEW IP ADDRESSES")
+print("IP ADDRESSES FOUND ON MOMON THAT ARE NOT IN TWMON")
 hop_list = []
 verified_hop_list = []
 verified_network_list = []
@@ -57,12 +57,6 @@ for line in new_ips:
         print("{} is down!".format(modified_ip))
 
 isp_list = []
-# for hop in verified_hop_list:
-#   isp_trace_url = "https://ipapi.co/{}/json".format(hop)
-#   response = urlopen(isp_trace_url)
-#   data_json = json.loads(response.read()) 
-#   isp_list.append(data_json.split("'org': '")[1].split("'}")[0])
-# print(isp_list)
 for hop in verified_hop_list:
     isp_trace_url = "https://ipapi.co/{}/json".format(hop)
     response = urlopen(isp_trace_url)
@@ -75,10 +69,12 @@ for hop in verified_hop_list:
 # print(verified_network_list)
 # print(verified_hop_list)
 # print(isp_list)
-
-print("\nNEW ENTRIES FOR TWMON\n")
-for index, entry in enumerate(verified_network_list):
-  print(Fore.CYAN + verified_network_list[index])
-  print(Fore.GREEN + "LAST HOP: " + verified_hop_list[index])
-  print(Fore.GREEN + "ISP: " + isp_list[index] + "\n" + Fore.WHITE)
+if verified_netwokr_list != []:
+  print("\nNEW ENTRIES FOR TWMON\n")
+  for index, entry in enumerate(verified_network_list):
+    print(Fore.CYAN + verified_network_list[index])
+    print(Fore.GREEN + "LAST HOP: " + verified_hop_list[index])
+    print(Fore.GREEN + "ISP: " + isp_list[index] + "\n" + Fore.WHITE)
+    
+else: print("\nNO NEW ENTRIES FOR TWMON\n")
  

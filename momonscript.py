@@ -37,7 +37,8 @@ for line in new_ips:
         output = subprocess.check_output("traceroute -I {}".format(modified_ip), shell=True).decode("utf-8").strip("\n ' '")
         output_lines = output.splitlines()
         for line in output_lines:
-            print(line.split("(")[1])
+            try: print(line.split("(")[1])
+            except: continue
         # traceroute_response = os.system("traceroute -I {}".format(modified_ip) + " > /dev/null 2>&1")
         # print(traceroute_response)
               

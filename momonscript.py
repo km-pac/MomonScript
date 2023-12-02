@@ -72,10 +72,11 @@ for hop in verified_hop_list:
     if 'org' in data_json:
         isp_list.append(data_json['org'])
 
-print(verified_network)
-print(verified_hop_list)
-print(isp_list)
+# print(verified_network)
+# print(verified_hop_list)
+# print(isp_list)
 
+print("\nNEW ENTRIES FOR TWMON")
 for entry in verified_network:
   print(Fore.GREEN + "SUBNET: " + verified_network[entry] + "\tLAST HOP :" +  verified_hop_list[entry] + "\tISP: " + isp_list + Fore.WHITE)
  

@@ -1,6 +1,8 @@
 # import pexpect
 import os
 import subprocess
+import json 
+from urllib.request import urlopen 
 from colorama import Fore, Style, init
 
 os.system("clear")

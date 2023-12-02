@@ -39,7 +39,7 @@ for line in new_ips:
         for line in output_lines:
             try: print("HOP: " + line.split("(")[1].split(")")[0])
             except: continue
-              
+        print("\n")
     else:
         print("{} is down!".format(modified_ip))
 

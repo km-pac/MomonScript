@@ -32,13 +32,14 @@ new_ips = [element for element in cleaned_iplist_momon if element not in cleaned
 print("NEW IP ADDRESSES")
 hop_list = []
 verified_hop_list = []
+verified_network = []
 for line in new_ips:
     modified_ip = line.split('.0/')[0] + '.2'
     ping_response = os.system("fping -c 1 -r 0 {}".format(modified_ip) + " > /dev/null 2>&1")
 
     if ping_response == 0:
         print(Fore.GREEN + "\n{} is up!".format(modified_ip) + Fore.WHITE)
-    
+        verified_network.append(line)
         output = subprocess.check_output("traceroute -I {}".format(modified_ip), shell=True).decode("utf-8").strip("\n ' '")
         output_lines = output.splitlines()
 

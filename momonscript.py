@@ -30,6 +30,7 @@ file2.close()
 new_ips = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
 
 print("NEW IP ADDRESSES")
+hop_list = []
 verified_hop_list = []
 for line in new_ips:
     modified_ip = line.split('.0/')[0] + '.2'

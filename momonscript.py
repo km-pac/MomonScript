@@ -74,5 +74,7 @@ for hop in verified_hop_list:
     if 'org' in data_json:
         isp_list.append(data_json['org'])
 
+print(verified_network)
+print(verified_hop_list)
 print(isp_list)
  

@@ -37,12 +37,17 @@ cleaned_iplist_momon = extract_momon_ip(momon_file)
 print(cleaned_iplist_twmon)
 print(cleaned_iplist_momon)
 
+# COMPARING TWMON AND MOMON FILE
 new_ips = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
 
 print("IP ADDRESSES FOUND ON MOMON THAT ARE NOT IN TWMON\n")
+
 hop_list = []
 verified_hop_list = []
 verified_network_list = []
+isp_list = []
+
+# PINGING + TRACEROUTING THE NEW NETWORK 
 for line in new_ips:
     modified_ip = line.split('.0/')[0] + '.2'
     ping_response = os.system("fping -c 1 -r 0 {}".format(modified_ip) + " > /dev/null 2>&1")
@@ -66,20 +71,15 @@ for line in new_ips:
     else:
         print("{} is down!".format(modified_ip))
 
-isp_list = []
+# EXTRACTING THE ISP OF THE LAST HOP
 for hop in verified_hop_list:
     isp_trace_url = "https://ipapi.co/{}/json".format(hop)
     response = urlopen(isp_trace_url)
     data_json = json.loads(response.read())
-    
-    # Check if 'org' key exists in the dictionary
     if 'org' in data_json:
         isp_list.append(data_json['org'])
 
-# print(verified_network_list)
-# print(verified_hop_list)
-# print(isp_list)
-
+# CONDITIONAL: IF THERE ARE NEW ENTRY FOR TWMON
 if verified_network_list != []:
   print(Fore.CYAN + "\nNEW ENTRIES FOR TWMON\n" + Fore.WHITE)
   for index, entry in enumerate(verified_network_list):

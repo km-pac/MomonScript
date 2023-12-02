@@ -69,12 +69,13 @@ for hop in verified_hop_list:
 # print(verified_network_list)
 # print(verified_hop_list)
 # print(isp_list)
+
 if verified_network_list != []:
-  print("\nNEW ENTRIES FOR TWMON\n")
+  print(Fore.CYAN + "\nNEW ENTRIES FOR TWMON\n" + Fore.WHITE)
   for index, entry in enumerate(verified_network_list):
     print(Fore.CYAN + verified_network_list[index])
     print(Fore.GREEN + "LAST HOP: " + verified_hop_list[index])
     print(Fore.GREEN + "ISP: " + isp_list[index] + "\n" + Fore.WHITE)
     
-else: print("\nNO NEW ENTRIES FOR TWMON\n")
+else: print(Fore.CYAN + "\nNO NEW ENTRIES FOR TWMON\n" + Fore.WHITE)
  

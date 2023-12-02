@@ -76,7 +76,7 @@ for hop in verified_hop_list:
 # print(verified_hop_list)
 # print(isp_list)
 
-print("\nNEW ENTRIES FOR TWMON")
+print("\nNEW ENTRIES FOR TWMON\n")
 for index, entry in enumerate(verified_network_list):
   print(Fore.CYAN + verified_network_list[index])
   print(Fore.GREEN + "LAST HOP: " + verified_hop_list[index])

@@ -32,14 +32,14 @@ new_ips = [element for element in cleaned_iplist_momon if element not in cleaned
 print("NEW IP ADDRESSES")
 hop_list = []
 verified_hop_list = []
-verified_network = []
+verified_network_list = []
 for line in new_ips:
     modified_ip = line.split('.0/')[0] + '.2'
     ping_response = os.system("fping -c 1 -r 0 {}".format(modified_ip) + " > /dev/null 2>&1")
 
     if ping_response == 0:
         print(Fore.GREEN + "\n{} is up!".format(modified_ip) + Fore.WHITE)
-        verified_network.append(line)
+        verified_network_list.append(line)
         output = subprocess.check_output("traceroute -I {}".format(modified_ip), shell=True).decode("utf-8").strip("\n ' '")
         output_lines = output.splitlines()
 
@@ -72,11 +72,13 @@ for hop in verified_hop_list:
     if 'org' in data_json:
         isp_list.append(data_json['org'])
 
-# print(verified_network)
+# print(verified_network_list)
 # print(verified_hop_list)
 # print(isp_list)
 
 print("\nNEW ENTRIES FOR TWMON")
-for index, entry in enumerate(verified_network):
-  print(Fore.GREEN + "SUBNET: " + verified_network[index] + "\tLAST HOP :" +  verified_hop_list[index] + "\tISP: " + isp_list[index] + Fore.WHITE)
+for index, entry in enumerate(verified_network_list):
+  print(Fore.CYAN + verified_network_list[index])
+  print(Fore.GREEN + "LAST HOP: " + verified_hop_list[index])
+  print(Fore.GREEN + "ISP: " + verified_hop_list[index] + "\n" + Fore.WHITE)
  

@@ -58,11 +58,20 @@ for line in new_ips:
 print(verified_hop_list)
 
 isp_list = []
+# for hop in verified_hop_list:
+#   isp_trace_url = "https://ipapi.co/{}/json".format(hop)
+#   response = urlopen(isp_trace_url)
+#   data_json = json.loads(response.read()) 
+#   isp_list.append(data_json.split("'org': '")[1].split("'}")[0])
+# print(isp_list)
 for hop in verified_hop_list:
-  isp_trace_url = "https://ipapi.co/{}/json".format(hop)
-  response = urlopen(isp_trace_url)
-  data_json = json.loads(response.read()) 
-  isp_list.append(data_json.split("'org': '")[1].split("'}")[0])
+    isp_trace_url = "https://ipapi.co/{}/json".format(hop)
+    response = urlopen(isp_trace_url)
+    data_json = json.loads(response.read())
+    
+    # Check if 'org' key exists in the dictionary
+    if 'org' in data_json:
+        isp_list.append(data_json['org'])
 
 print(isp_list)
  

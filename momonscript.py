@@ -44,7 +44,7 @@ for line in new_ips:
               # print("HOP: " + extracted_hop)
               hop_list.append(extracted_hop)
             except: continue
-        
+        print(hop_list)
     else:
         print("{} is down!".format(modified_ip))
 

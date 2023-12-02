@@ -40,10 +40,9 @@ for line in new_ips:
             try: 
               hop_list = []
               extracted_hop = line.split("(")[1].split(")")[0]
-              hop_list.append(extracted_hop)
               print("HOP: " + extracted_hop)
             except: continue
-        print(hop_list)
+        print(extracted_hop)
     else:
         print("{} is down!".format(modified_ip))
 

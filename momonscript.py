@@ -37,10 +37,8 @@ for line in new_ips:
         output = subprocess.check_output("traceroute -I {}".format(modified_ip), shell=True).decode("utf-8").strip("\n ' '")
         output_lines = output.splitlines()
         for line in output_lines:
-            try: print(line.split("(")[1])
+            try: print("HOP: " + line.split("(")[1].split(")")[0])
             except: continue
-        # traceroute_response = os.system("traceroute -I {}".format(modified_ip) + " > /dev/null 2>&1")
-        # print(traceroute_response)
               
     else:
         print("{} is down!".format(modified_ip))

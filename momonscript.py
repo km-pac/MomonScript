@@ -30,7 +30,7 @@ file2.close()
 new_ips = [element for element in cleaned_iplist_momon if element not in cleaned_iplist_twmon]
 
 print("NEW IP ADDRESSES")
-
+verified_hop_list = []
 for line in new_ips:
     modified_ip = line.split('.0/')[0] + '.2'
     ping_response = os.system("fping -c 1 -r 0 {}".format(modified_ip) + " > /dev/null 2>&1")
@@ -41,15 +41,16 @@ for line in new_ips:
         output = subprocess.check_output("traceroute -I {}".format(modified_ip), shell=True).decode("utf-8").strip("\n ' '")
         output_lines = output.splitlines()
 
-        hop_list = []
         for line in output_lines:
-            try: 
-              extracted_hop = line.split("(")[1].split(")")[0]
-              # print("HOP: " + extracted_hop)
-              hop_list.append(extracted_hop)
-            except: continue
-        print(Fore.GREEN + "LAST HOP: " + hop_list[len(hop_list)-3] + Fore.WHITE + "\n")
+          try: 
+            extracted_hop = line.split("(")[1].split(")")[0]
+            hop_list.append(extracted_hop)
+          except: continue
+          final_hop = hop_list[len(hop_list)-3]
+          print(Fore.GREEN + "LAST HOP: " + final_hop + Fore.WHITE + "\n")
+          verified_hop_list.append(final_hop)
     else:
         print("{} is down!".format(modified_ip))
 
+print(verified_hop_list)
  

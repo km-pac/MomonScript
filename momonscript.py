@@ -51,8 +51,15 @@ for line in new_ips:
         final_hop = hop_list[len(hop_list)-3]
         print(Fore.GREEN + "LAST HOP: " + final_hop + Fore.WHITE + "\n")
         verified_hop_list.append(final_hop)
+      
     else:
         print("{} is down!".format(modified_ip))
 
 print(verified_hop_list)
+
+for hop in verified_hop_list:
+  isp_trace_url = "https://ipapi.co/{}/json".format(hop)
+  response = urlopen(isp_trace_url)
+  data_json = json.loads(response.read()) 
+  print(data_json)
  

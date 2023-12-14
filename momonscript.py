@@ -54,7 +54,7 @@ for line in new_ips:
         verified_network_list.append(line)
         output = subprocess.check_output("traceroute -I {}".format(modified_ip), shell=True).decode("utf-8").strip("\n ' '")
       
-        print("\r Performing traceroute on " + modified_ip)
+        print("Performing traceroute on " + modified_ip)
       
         output_lines = output.splitlines()
 

@@ -1,6 +1,5 @@
 # import pexpect
-import os, subprocess, json, requests
-from bs4 import BeautifulSoup
+import os, subprocess, json
 from urllib.request import urlopen 
 from colorama import Fore, Style, init
 
@@ -70,14 +69,15 @@ for line in new_ips:
 # EXTRACTING THE ISP OF THE LAST HOP
 for hop in verified_hop_list:
     isp_trace_url = "https://ipapi.co/{}/json".format(hop)
-    bak_isp_trace_url = "https://ip-api.com/#{}".format(hop)
+    bak_isp_trace_url = "http://ip-api.com/json/{}".format(hop)
+    
     response = urlopen(isp_trace_url)
     data_json = json.loads(response.read())
 
-    bak_response = requests.get(bak_isp_trace_url)
-    soup = BeautifulSoup(bak_response.text, 'html.parser')
-    print(soup.prettify())
-  
+    bak_response = urlopen(bak_isp_trace_url)
+    bak_data_json = json.loads(bak_response.read())
+    print(bak_data_json)
+
     if 'org' in data_json and data_json['org'] is not None:
       isp_list.append(data_json['org'])
 

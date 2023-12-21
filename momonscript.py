@@ -79,8 +79,7 @@ for hop in verified_hop_list:
     data_json = json.loads(response.read())
     if 'org' in data_json:
         isp_list.append(data_json['org'])
-    else: isp_list.append("NA")
-  except: continue
+  except: isp_list.append("NA")
 
 # CONDITIONAL: IF THERE ARE NEW ENTRY FOR TWMON
 if verified_network_list != []:

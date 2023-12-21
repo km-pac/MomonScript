@@ -80,7 +80,8 @@ for hop in verified_hop_list:
 
     if 'org' in data_json and data_json['org'] is not None:
       isp_list.append(data_json['org'])
-
+    elif 'isp' in bak_data_json:
+      isp_list.append(bak_data_json['isp'])
    
 # print(type(isp_list[0]))
 

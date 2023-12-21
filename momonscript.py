@@ -1,7 +1,6 @@
 # import pexpect
-import os
-import subprocess
-import json 
+import os, subprocess, json, requests
+from bs4 import BeautifulSoup
 from urllib.request import urlopen 
 from colorama import Fore, Style, init
 
@@ -80,11 +79,12 @@ for hop in verified_hop_list:
   
     data_json = json.loads(response.read())
     print(bak_response)
+    
   
     if 'org' in data_json and data_json['org'] is not None:
       isp_list.append(data_json['org'])
     # elif: isp_list.append("NA")
-    print(data_json)
+    print(bak_data_json)
    
 # print(type(isp_list[0]))
 

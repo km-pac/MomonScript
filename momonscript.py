@@ -77,8 +77,10 @@ for hop in verified_hop_list:
     bak_isp_trace_url = "https://ip-api.com/#{}".format(hop)
     response = urlopen(isp_trace_url)
     bak_response = urlopen(bak_isp_trace_url)
+  
     data_json = json.loads(response.read())
-    bak_data_json = json.loads(bak_response.read())
+    print(bak_response)
+  
     if 'org' in data_json and data_json['org'] is not None:
       isp_list.append(data_json['org'])
     # elif: isp_list.append("NA")

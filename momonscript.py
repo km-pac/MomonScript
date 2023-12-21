@@ -75,16 +75,15 @@ for hop in verified_hop_list:
     isp_trace_url = "https://ipapi.co/{}/json".format(hop)
     bak_isp_trace_url = "https://ip-api.com/#{}".format(hop)
     response = urlopen(isp_trace_url)
-    bak_response = urlopen(bak_isp_trace_url)
-  
     data_json = json.loads(response.read())
-    print(bak_response)
-    
+
+    bak_response = requests.get(bak_isp_trace_url)
+    soup = BeautifulSoup(bak_response.text, 'html.parser')
+    print(soup.pretify())
   
     if 'org' in data_json and data_json['org'] is not None:
       isp_list.append(data_json['org'])
-    # elif: isp_list.append("NA")
-    print(bak_data_json)
+
    
 # print(type(isp_list[0]))
 

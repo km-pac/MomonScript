@@ -47,14 +47,11 @@ isp_list = []
 for line in new_ips:
     modified_ip = line.split('.0/')[0] + '.2'
     ping_response = os.system("fping -c 1 -r 0 {}".format(modified_ip) + " > /dev/null 2>&1")
-
+    print("Performing traceroute on " + modified_ip)
     if ping_response == 0:
         print(Fore.GREEN + "\n{} is up!".format(modified_ip) + Fore.WHITE)
         verified_network_list.append(line)
         output = subprocess.check_output("traceroute -I {}".format(modified_ip), shell=True).decode("utf-8").strip("\n ' '")
-      
-        print("Performing traceroute on " + modified_ip)
-      
         output_lines = output.splitlines()
 
         for line in output_lines:

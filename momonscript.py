@@ -77,8 +77,10 @@ for hop in verified_hop_list:
     response = urlopen(isp_trace_url)
     data_json = json.loads(response.read())
     if 'org' in data_json:
-        isp_list.append(data_json['org'])
-    print(type(isp_list[0]))
+      if data['org'] not None: isp_list.append(data_json['org'])
+      else: isp_list.append("NA")
+   
+# print(type(isp_list[0]))
 
 # CONDITIONAL: IF THERE ARE NEW ENTRY FOR TWMON
 if verified_network_list != []:

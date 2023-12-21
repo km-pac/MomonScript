@@ -73,13 +73,11 @@ for line in new_ips:
 
 # EXTRACTING THE ISP OF THE LAST HOP
 for hop in verified_hop_list:
-  try:
     isp_trace_url = "https://ipapi.co/{}/json".format(hop)
     response = urlopen(isp_trace_url)
     data_json = json.loads(response.read())
     if 'org' in data_json:
         isp_list.append(data_json['org'])
-  except: isp_list.append("NA")
 
 # CONDITIONAL: IF THERE ARE NEW ENTRY FOR TWMON
 if verified_network_list != []:
@@ -87,7 +85,8 @@ if verified_network_list != []:
   for index, entry in enumerate(verified_network_list):
     print(Fore.CYAN + verified_network_list[index])
     print(Fore.GREEN + "LAST HOP: " + verified_hop_list[index])
-    print(Fore.GREEN + "ISP: " + isp_list[index] + "\n" + Fore.WHITE)
-    
+    try:
+      print(Fore.GREEN + "ISP: " + isp_list[index] + "\n" + Fore.WHITE)
+    except: continue
 else: print(Fore.CYAN + "\nNO NEW ENTRIES FOR TWMON\n" + Fore.WHITE)
  

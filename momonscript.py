@@ -77,7 +77,7 @@ for hop in verified_hop_list:
     response = urlopen(isp_trace_url)
     data_json = json.loads(response.read())
     if 'org' in data_json:
-      if data['org'] is not None: isp_list.append(data_json['org'])
+      if data_json['org'] is not None: isp_list.append(data_json['org'])
       else: isp_list.append("NA")
    
 # print(type(isp_list[0]))

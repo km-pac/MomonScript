@@ -79,7 +79,7 @@ for hop in verified_hop_list:
 
     bak_response = requests.get(bak_isp_trace_url)
     soup = BeautifulSoup(bak_response.text, 'html.parser')
-    print(soup.pretify())
+    print(soup.prettify())
   
     if 'org' in data_json and data_json['org'] is not None:
       isp_list.append(data_json['org'])
